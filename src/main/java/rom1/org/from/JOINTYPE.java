@@ -1,4 +1,4 @@
-package rom1.org;
+package rom1.org.from;
 
 public enum JOINTYPE {
     INNER_JOIN("JOIN"),

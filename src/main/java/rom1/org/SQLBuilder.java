@@ -1,28 +1,16 @@
 package rom1.org;
 
+import rom1.org.select.SelectBuilder;
+
 public class SQLBuilder {
-    private Select select;
-    private From from;
-    private Where where;
+    private SelectBuilder selectBuilder;
 
-    public SQLBuilder withSelect(Select select) {
-        this.select = select;
-        return this;
+    public SelectBuilder select() {
+        this.selectBuilder = new SelectBuilder();
+        return selectBuilder;
     }
 
-    public SQLBuilder withFrom(From from) {
-        this.from = from;
-        return this;
+    public String toSQL() {
+        return this.selectBuilder.toSQL();
     }
-
-    public SQLBuilder withWhere(Where where) {
-        this.where = where;
-        return this;
-    }
-
-    public SQLQuery build() {
-        return new SQLQuery(select, from, where);
-    }
-
-
 }
